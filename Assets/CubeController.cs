@@ -61,19 +61,16 @@ public class CubeController : MonoBehaviour
 
     IEnumerator HapticFeedback(float duration)
     {
-        // Start haptic feedback
+
         OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.RTouch);
         yield return new WaitForSeconds(duration);
-        // Stop haptic feedback
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the object collided with is a cube
         if (collision.gameObject.CompareTag("Cube"))
         {
-            // Destroy the cube
             Destroy(collision.gameObject);
         }
     }
